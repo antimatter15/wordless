@@ -1,4 +1,16 @@
 window.parse = (ab) ->
-	header = new QuasiStruct [8,16,2,2,2,2,2,10,4,4,4,4,4,4,4,4]
-
-	[magic, uid, revision, version, order, sectorsize, shortsize, unused, sectornum, first, unused2, minsize, secid, secnum, secid, masternum] = header.parse(new Uint8Array(ab))
+	ptr = 0
+	arr = new Uint8Array ab
+	skip = (num) ->
+		ptr += num
+	read = (num) ->
+		val = 0
+		for n in [0...num]
+			console.log arr[ptr+n], (ptr+n).toString(16)
+			val = (val * 256) + arr[ptr+n] 
+		val
+	console.log read 8
+	ptr = 76
+	console.log read 4
+	
+	

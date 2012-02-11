@@ -1,0 +1,1 @@
+This is a prototype of a Microsoft Compound Document Format parser, at least a really basic one that might be able to get the text out of a word document.
